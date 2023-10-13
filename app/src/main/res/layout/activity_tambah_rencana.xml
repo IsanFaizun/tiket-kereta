@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TambahRencanaActivity"
+    android:background="@color/blue"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"
+        android:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            >
+
+            <TextView
+                android:id="@+id/rencana_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rencana Perjalanan"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/tgl_view"
+                />
+            <TextView
+                android:id="@+id/tgl_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Perjalanan"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/rencana_title"
+                app:layout_constraintBottom_toTopOf="@id/tgl_jalan"
+                />
+
+            <EditText
+                android:id="@+id/tgl_jalan"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/edt_form"
+                android:hint="DD/MM/YYYY"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/tgl_view"
+                app:layout_constraintBottom_toTopOf="@id/kota_asal_view"
+                />
+
+            <ImageView
+                android:id="@+id/calendar_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Toggle Calendar Dialog"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/calendar"
+                app:layout_constraintBottom_toBottomOf="@+id/tgl_jalan"
+                app:layout_constraintEnd_toEndOf="@+id/tgl_jalan"
+                app:layout_constraintTop_toTopOf="@+id/tgl_jalan" />
+
+            <TextView
+                android:id="@+id/kota_asal_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kota Asal"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/tgl_jalan"
+                app:layout_constraintBottom_toTopOf="@+id/kota_asal"
+                />
+
+            <Spinner
+                android:id="@+id/kota_asal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/edt_form"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/kota_asal"
+                app:layout_constraintTop_toBottomOf="@+id/kota_asal_view"
+                app:layout_constraintBottom_toTopOf="@id/kota_tujuan_view"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Dropdown mark"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/kota_asal"
+                app:layout_constraintEnd_toEndOf="@+id/kota_asal"
+                app:layout_constraintTop_toTopOf="@+id/kota_asal" />
+
+            <TextView
+                android:id="@+id/kota_tujuan_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kota Tujuan"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/kota_asal"
+                app:layout_constraintBottom_toTopOf="@id/kota_tujuan"
+                />
+
+            <Spinner
+                android:id="@+id/kota_tujuan"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/edt_form"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/kota_tujuan"
+                app:layout_constraintTop_toBottomOf="@id/kota_tujuan_view"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_asal_view"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Dropdown mark"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/kota_tujuan"
+                app:layout_constraintEnd_toEndOf="@+id/kota_tujuan"
+                app:layout_constraintTop_toTopOf="@+id/kota_tujuan" />
+
+            <TextView
+                android:id="@+id/stasiun_asal_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stasiun Asal"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/kota_tujuan"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_asal"
+                />
+
+            <Spinner
+                android:id="@+id/stasiun_asal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/edt_form"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/stasiun_asal"
+                app:layout_constraintTop_toBottomOf="@id/stasiun_asal_view"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_tujuan_view"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Dropdown mark"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/stasiun_asal"
+                app:layout_constraintEnd_toEndOf="@+id/stasiun_asal"
+                app:layout_constraintTop_toTopOf="@+id/stasiun_asal" />
+
+            <TextView
+                android:id="@+id/stasiun_tujuan_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stasiun Tujuan"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/stasiun_asal"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_tujuan"
+                />
+
+            <Spinner
+                android:id="@+id/stasiun_tujuan"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/edt_form"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/stasiun_tujuan"
+                app:layout_constraintTop_toBottomOf="@+id/stasiun_tujuan_view"
+                app:layout_constraintBottom_toTopOf="@id/class_kereta_view"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Dropdown mark"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/stasiun_tujuan"
+                app:layout_constraintEnd_toEndOf="@+id/stasiun_tujuan"
+                app:layout_constraintTop_toTopOf="@+id/stasiun_tujuan" />
+
+            <TextView
+                android:id="@+id/class_kereta_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kelas Kereta"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/stasiun_tujuan"
+                app:layout_constraintBottom_toTopOf="@id/class_kereta"
+                />
+
+            <Spinner
+                android:id="@+id/class_kereta"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:padding="10dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/edt_form"
+                android:entries="@array/class_kereta"
+
+                app:layout_constraintTop_toBottomOf="@+id/class_kereta_view"
+                app:layout_constraintBottom_toTopOf="@id/toogle"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Dropdown mark"
+                android:padding="8dp"
+                android:focusable="true"
+                android:src="@drawable/arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/class_kereta"
+                app:layout_constraintEnd_toEndOf="@+id/class_kereta"
+                app:layout_constraintTop_toTopOf="@+id/class_kereta" />
+
+            <HorizontalScrollView
+                android:id="@+id/toogle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                app:layout_constraintTop_toBottomOf="@id/class_kereta"
+                app:layout_constraintBottom_toTopOf="@+id/price_detail"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <CheckBox
+                        android:id="@+id/snack_box"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Snack Box"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/lunch_box"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        android:text="Lunch Box" />
+
+                    <CheckBox
+                        android:id="@+id/free_wifi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Free Wifi"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/stopkontak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stop Kontak"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/air_conditioner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Air Conditioner"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/kursi_depan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kursi Depan"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/kursi_disabilitas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kursi Disabilitas"
+                        android:layout_marginHorizontal="2dp"
+                        android:background="@drawable/edt_form"
+                        android:paddingHorizontal="8dp"
+                        />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/price_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/toogle"
+                app:layout_constraintBottom_toTopOf="@id/input_pesan"
+                android:layout_marginBottom="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=":"
+                    android:layout_marginHorizontal="10dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. "
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/input_pesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gold"
+                android:textColor="@color/black"
+                android:text="Pesan"
+                app:layout_constraintTop_toBottomOf="@id/price_detail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

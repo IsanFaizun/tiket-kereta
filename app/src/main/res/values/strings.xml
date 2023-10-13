@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Travel</string>
+    <array name="kota_asal">
+        <item>Silahkan dipilih</item>
+        <item>Kota A</item>
+        <item>Kota B</item>
+        <item>Kota C</item>
+    </array>
+    <array name="kota_tujuan">
+        <item>Silahkan dipilih</item>
+        <item>Kota X</item>
+        <item>Kota Y</item>
+        <item>Kota Z</item>
+    </array>
+    <array name="stasiun_asal">
+        <item>Silahkan dipilih</item>
+        <item>Stasiun Satu</item>
+        <item>Stasiun Dua</item>
+        <item>Stasiun Tiga</item>
+    </array>
+    <array name="stasiun_tujuan">
+        <item>Silahkan dipilih</item>
+        <item>Stasiun Empat</item>
+        <item>Stasiun Lima</item>
+        <item>Stasiun Enam</item>
+    </array>
+    <array name="class_kereta">
+        <item>Silahkan dipilih</item>
+        <item>Ekonomi</item>
+        <item>Bisnis</item>
+        <item>Eksekutif</item>
+    </array>
+</resources>
