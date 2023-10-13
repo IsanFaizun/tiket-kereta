@@ -58,10 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             logout.setOnClickListener {
-                val intentToLogin = Intent(this@MainActivity, LoginActivity::class.java)
-                intentToLogin.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
-                intentToLogin.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
-                intentToLogin.putExtra(RegisterActivity.EXTRA_PASSWORD_REG, password)
+                val intentToLogin = Intent(this@MainActivity, RegisterActivity::class.java)
                 startActivity(intentToLogin)
             }
         }
