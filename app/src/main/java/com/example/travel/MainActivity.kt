@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
             val username = intent.getStringExtra(RegisterActivity.EXTRA_USERNAME_REG)
             val email = intent.getStringExtra(RegisterActivity.EXTRA_EMAIL_REG)
+            val password = intent.getStringExtra(RegisterActivity.EXTRA_PASSWORD_REG)
 
             binding.usernameMain.text = username
             binding.emailMain.text = email
@@ -54,6 +55,14 @@ class MainActivity : AppCompatActivity() {
                 intentToAddRencana.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
                 intentToAddRencana.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
                 startActivity(intentToAddRencana)
+            }
+
+            logout.setOnClickListener {
+                val intentToLogin = Intent(this@MainActivity, LoginActivity::class.java)
+                intentToLogin.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
+                intentToLogin.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
+                intentToLogin.putExtra(RegisterActivity.EXTRA_PASSWORD_REG, password)
+                startActivity(intentToLogin)
             }
         }
     }

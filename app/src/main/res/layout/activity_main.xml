@@ -258,19 +258,41 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/custom_box"
-                app:layout_constraintBottom_toTopOf="@id/input_rencana"
+                app:layout_constraintBottom_toTopOf="@id/buttons_main"
                 app:layout_constraintTop_toBottomOf="@id/detail_perjalanan"
                 tools:layout_editor_absoluteX="44dp" />
 
-            <Button
-                android:id="@+id/input_rencana"
+            <LinearLayout
+                android:id="@+id/buttons_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/gold"
-                android:text="Buat Rencana Perjalanan"
-                android:textColor="@color/black"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/calendar_view" />
+                app:layout_constraintTop_toBottomOf="@id/calendar_view"
+                >
+
+                <Button
+                    android:id="@+id/logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gold"
+                    android:layout_weight="2"
+                    android:text="Logout"
+                    android:layout_marginRight="2dp"
+                    android:textColor="@color/black"
+                    />
+
+                <Button
+                    android:id="@+id/input_rencana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/gold"
+                    android:text="Input Rencana"
+                    android:layout_marginLeft="2dp"
+                    android:textColor="@color/black"
+                    />
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
