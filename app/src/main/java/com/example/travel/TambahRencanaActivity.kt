@@ -29,6 +29,7 @@ class TambahRencanaActivity : AppCompatActivity() {
         binding = ActivityTambahRencanaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Random Generator
         fun generateRandomPrice(): Int {
             val minPrice = 5000
             val maxPrice = 10000

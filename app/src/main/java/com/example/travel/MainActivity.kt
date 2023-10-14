@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
             val username = intent.getStringExtra(RegisterActivity.EXTRA_USERNAME_REG)
             val email = intent.getStringExtra(RegisterActivity.EXTRA_EMAIL_REG)
-            val password = intent.getStringExtra(RegisterActivity.EXTRA_PASSWORD_REG)
 
             binding.usernameMain.text = username
             binding.emailMain.text = email
