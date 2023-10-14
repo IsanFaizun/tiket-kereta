@@ -1,4 +1,5 @@
 package com.example.travel
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.icu.util.Calendar
@@ -181,17 +182,25 @@ class TambahRencanaActivity : AppCompatActivity() {
                 val email = intent.getStringExtra(RegisterActivity.EXTRA_EMAIL_REG)
 
                 inputPesan.setOnClickListener {
-                    val intentToDashboard =
-                        Intent(this@TambahRencanaActivity, MainActivity::class.java)
-                    intentToDashboard.putExtra(EXTRA_TGLJALAN, tglJalan.text.toString())
-                    intentToDashboard.putExtra(EXTRA_KOTA_ASAL, selectedKotaAsal)
-                    intentToDashboard.putExtra(EXTRA_KOTA_TUJUAN, selectedKotaTujuan)
-                    intentToDashboard.putExtra(EXTRA_STASIUN_ASAL, selectedStasiunAsal)
-                    intentToDashboard.putExtra(EXTRA_STASIUN_TUJUAN, selectedStasiunTujuan)
-                    intentToDashboard.putExtra(EXTRA_KELAS_KERETA, selectedKelasKereta)
-                    intentToDashboard.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
-                    intentToDashboard.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
-                    startActivity(intentToDashboard)
+                    val alertDialog = AlertDialog.Builder(this@TambahRencanaActivity)
+                    alertDialog.setTitle("Konfirmasi")
+                    alertDialog.setMessage("Anda yakin ingin melakukan pemesanan?")
+                    alertDialog.setPositiveButton("Ya") { dialog, which ->
+                        val intentToDashboard = Intent(this@TambahRencanaActivity, MainActivity::class.java)
+                        intentToDashboard.putExtra(EXTRA_TGLJALAN, tglJalan.text.toString())
+                        intentToDashboard.putExtra(EXTRA_KOTA_ASAL, selectedKotaAsal)
+                        intentToDashboard.putExtra(EXTRA_KOTA_TUJUAN, selectedKotaTujuan)
+                        intentToDashboard.putExtra(EXTRA_STASIUN_ASAL, selectedStasiunAsal)
+                        intentToDashboard.putExtra(EXTRA_STASIUN_TUJUAN, selectedStasiunTujuan)
+                        intentToDashboard.putExtra(EXTRA_KELAS_KERETA, selectedKelasKereta)
+                        intentToDashboard.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
+                        intentToDashboard.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
+                        startActivity(intentToDashboard)
+                    }
+                    alertDialog.setNegativeButton("Batal") { dialog, which ->
+                        // Tidak melakukan apa-apa jika pengguna membatalkan dialog
+                    }
+                    alertDialog.show()
                 }
             }
         }
