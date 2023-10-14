@@ -169,7 +169,7 @@ class TambahRencanaActivity : AppCompatActivity() {
                 val month = calendar.get(Calendar.MONTH)
                 val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-                val datePickerDialog = DatePickerDialog(this@TambahRencanaActivity, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                val datePickerDialog = DatePickerDialog(this@TambahRencanaActivity, R.style.CustomDatePickerTheme,DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
                     val selectedDate = "$dayOfMonth/${month + 1}/$year"
                     binding.tglJalan.setText(selectedDate)
                 }, year, month, day)
