@@ -36,12 +36,6 @@ class TambahRencanaActivity : AppCompatActivity() {
             return (minPrice..maxPrice).random()
         }
 
-        fun updatePrice(checked: Boolean) {
-            val newPrice = if (checked) 5000 else 0
-            hargaTerbaru += newPrice
-            binding.price.text = "$hargaTerbaru"
-        }
-
         with(binding){
             // Tambah harga tiap Spinner
             fun updatePrice() {
@@ -140,28 +134,70 @@ class TambahRencanaActivity : AppCompatActivity() {
                 }
             }
 
-            binding.snackBox.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.snackBox.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.snackBox.setTextColor(resources.getColor(R.color.white))
+                } else{
+                    hargaTerbaru -= 5000
+                    binding.snackBox.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
-            binding.lunchBox.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.lunchBox.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.lunchBox.setTextColor(resources.getColor(R.color.white))
+                } else {
+                    hargaTerbaru -= 5000
+                    binding.lunchBox.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
-            binding.freeWifi.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.freeWifi.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.freeWifi.setTextColor(resources.getColor(R.color.white))
+                } else {
+                    hargaTerbaru -= 5000
+                    binding.freeWifi.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
-            binding.stopkontak.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.stopkontak.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.stopkontak.setTextColor(resources.getColor(R.color.white))
+                } else {
+                    hargaTerbaru -= 5000
+                    binding.stopkontak.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
-            binding.airConditioner.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.airConditioner.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.airConditioner.setTextColor(resources.getColor(R.color.white))
+                } else {
+                    hargaTerbaru -= 5000
+                    binding.airConditioner.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
-            binding.kursiDepan.setOnCheckedChangeListener { buttonView, isChecked ->
-                updatePrice(isChecked)
+            binding.kursiDepan.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked){
+                    hargaTerbaru += 5000
+                    binding.kursiDepan.setTextColor(resources.getColor(R.color.white))
+                } else {
+                    hargaTerbaru -= 5000
+                    binding.kursiDepan.setTextColor(resources.getColor(R.color.black))
+                }
+                binding.price.text = "$hargaTerbaru"
             }
 
             // Set Date
@@ -187,7 +223,7 @@ class TambahRencanaActivity : AppCompatActivity() {
                     alertDialog.setTitle("Konfirmasi")
                     alertDialog.setMessage("Anda yakin ingin melakukan pemesanan?")
                     alertDialog.setPositiveButton("Ya") { dialog, which ->
-                        val intentToDashboard = Intent(this@TambahRencanaActivity, MainActivity::class.java)
+                        val intentToDashboard = Intent(this@TambahRencanaActivity, ProfileActivity::class.java)
                         intentToDashboard.putExtra(EXTRA_TGLJALAN, tglJalan.text.toString())
                         intentToDashboard.putExtra(EXTRA_KOTA_ASAL, selectedKotaAsal)
                         intentToDashboard.putExtra(EXTRA_KOTA_TUJUAN, selectedKotaTujuan)
@@ -200,6 +236,23 @@ class TambahRencanaActivity : AppCompatActivity() {
                     }
                     alertDialog.setNegativeButton("Batal") { dialog, which ->
                         // Tidak melakukan apa-apa jika pengguna membatalkan dialog
+                    }
+                    alertDialog.show()
+                }
+
+                backBtn.setOnClickListener {
+                    val alertDialog = AlertDialog.Builder(this@TambahRencanaActivity)
+                    alertDialog.setTitle("Konfirmasi")
+                    alertDialog.setMessage("Semua perubahan akan dihapus. Apakah Anda yakin ingin kembali?")
+                    alertDialog.setPositiveButton("Ya") { dialog, which ->
+                        val intentToDashboard =
+                            Intent(this@TambahRencanaActivity, ProfileActivity::class.java)
+                        intentToDashboard.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
+                        intentToDashboard.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
+                        startActivity(intentToDashboard)
+                    }
+                    alertDialog.setNegativeButton("Batal") { dialog, which ->
+                        //
                     }
                     alertDialog.show()
                 }

@@ -16,7 +16,7 @@
             android:name=".TambahRencanaActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

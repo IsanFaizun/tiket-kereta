@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                 val secondEdt = passwordLogin.text.toString()
 
                 if ((firstEdt == expectedUsername||firstEdt == expectedEmail) && secondEdt == expectedPassword){
-                    val intentToDashboard = Intent(this@LoginActivity, MainActivity::class.java)
+                    val intentToDashboard = Intent(this@LoginActivity, ProfileActivity::class.java)
                     // Store Username dan Email ke MainActivity
                     intentToDashboard.putExtra(RegisterActivity.EXTRA_USERNAME_REG, expectedUsername)
                     intentToDashboard.putExtra(RegisterActivity.EXTRA_EMAIL_REG, expectedEmail)

@@ -3,20 +3,15 @@ package com.example.travel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.style.ForegroundColorSpan
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import com.example.travel.databinding.ActivityMainBinding
+import com.example.travel.databinding.ActivityProfileBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class ProfileActivity : AppCompatActivity() {
+    lateinit var binding: ActivityProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         with(binding) {
@@ -37,9 +32,9 @@ class MainActivity : AppCompatActivity() {
             binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
                 val selectedDate = "$dayOfMonth/${month + 1}/$year" // Format tanggal yang dipilih
                 if (selectedDate == tanggalJln) {
-                    Toast.makeText(this@MainActivity, "Anda punya rencana pada tanggal tersebut", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ProfileActivity, "Anda punya rencana pada tanggal tersebut", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this@MainActivity, "Tidak ada rencana di hari tersebut", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ProfileActivity, "Tidak ada rencana di hari tersebut", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -50,14 +45,14 @@ class MainActivity : AppCompatActivity() {
             binding.emailMain.text = email
 
             inputRencana.setOnClickListener {
-                val intentToAddRencana = Intent(this@MainActivity, TambahRencanaActivity::class.java)
+                val intentToAddRencana = Intent(this@ProfileActivity, TambahRencanaActivity::class.java)
                 intentToAddRencana.putExtra(RegisterActivity.EXTRA_USERNAME_REG, username)
                 intentToAddRencana.putExtra(RegisterActivity.EXTRA_EMAIL_REG, email)
                 startActivity(intentToAddRencana)
             }
 
             logout.setOnClickListener {
-                val intentToLogin = Intent(this@MainActivity, RegisterActivity::class.java)
+                val intentToLogin = Intent(this@ProfileActivity, RegisterActivity::class.java)
                 startActivity(intentToLogin)
             }
         }

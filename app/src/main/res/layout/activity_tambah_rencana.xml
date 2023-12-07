@@ -261,72 +261,80 @@
                     android:orientation="horizontal"
                     >
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/snack_box"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Snack Box"
+                        android:textOff="Snack Box"
+                        android:textOn="Snack Box"
+                        android:background="@drawable/toggle_selector"
                         android:layout_marginRight="2dp"
-                        android:background="@drawable/edt_form"
                         android:paddingHorizontal="8dp"
                         />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/lunch_box"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
-                        android:text="Lunch Box" />
+                        android:textOff="Lunch Box"
+                        android:textOn="Lunch Box"
+                        />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/free_wifi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Free Wifi"
+                        android:textOff="Free Wifi"
+                        android:textOn="Free Wifi"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
                         />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/stopkontak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stop Kontak"
+                        android:textOff="Stop Kontak"
+                        android:textOn="Stop Kontak"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
                         />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/air_conditioner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Air Conditioner"
+                        android:textOff="Air Conditioner"
+                        android:textOn="Air Conditioner"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
                         />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/kursi_depan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kursi Depan"
+                        android:textOff="Kursi Depan"
+                        android:textOn="Kursi Depan"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
                         />
 
-                    <CheckBox
+                    <ToggleButton
                         android:id="@+id/kursi_disabilitas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kursi Disabilitas"
+                        android:textOff="Kursi Disabilitas"
+                        android:textOn="Kursi Disabilitas"
                         android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/edt_form"
+                        android:background="@drawable/toggle_selector"
                         android:paddingHorizontal="8dp"
                         />
 
@@ -339,7 +347,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/toogle"
-                app:layout_constraintBottom_toTopOf="@id/input_pesan"
+                app:layout_constraintBottom_toTopOf="@id/buttons_pesan"
                 android:layout_marginBottom="10dp"
                 >
 
@@ -380,16 +388,37 @@
                     />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/input_pesan"
+            <LinearLayout
+                android:id="@+id/buttons_pesan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/gold"
-                android:textColor="@color/black"
-                android:text="Pesan"
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/price_detail"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                >
+
+                <Button
+                    android:id="@+id/input_pesan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gold"
+                    android:textColor="@color/black"
+                    android:text="Kembali"
+                    android:layout_weight="1"
+                    android:layout_marginRight="2dp"
+                    />
+                <Button
+                    android:id="@+id/back_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/gold"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="2dp"
+                    android:text="Pesan"
+                    />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
