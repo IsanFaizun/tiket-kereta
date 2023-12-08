@@ -6,4 +6,5 @@
     <color name="dark_grey">#828282</color>
     <color name="blue">#525BFF</color>
     <color name="gold">#FFE800</color>
+    <color name="selected">#1A534BEF</color>
 </resources>
