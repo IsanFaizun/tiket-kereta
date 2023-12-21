@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/orderTravelFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda"
+        />
+    <item
+        android:id="@+id/favouriteFragment"
+        android:icon="@drawable/ic_star"
+        android:title="Favorit"
+        />
+    <item
+        android:id="@+id/historyFragment"
+        android:icon="@drawable/ic_history"
+        android:title="Riwayat"
+        />
+    <item
+        android:id="@+id/profileFragment2"
+        android:icon="@drawable/ic_person"
+        android:title="Profil"
+        />
 </menu>

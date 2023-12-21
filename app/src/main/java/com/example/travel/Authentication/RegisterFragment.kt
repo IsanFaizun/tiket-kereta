@@ -1,6 +1,8 @@
 package com.example.travel.Authentication
 
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.Intent
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
@@ -8,17 +10,19 @@ import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.travel.Models.User
 import com.example.travel.R
+import com.example.travel.User.UserPageActivity
 import com.example.travel.databinding.FragmentRegisterBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
+    private val firestore = FirebaseFirestore.getInstance()
+    private val usersRefColl = firestore.collection("users")
+
     private var calendar = Calendar.getInstance()
 
     override fun onCreateView(
@@ -65,32 +69,50 @@ class RegisterFragment : Fragment() {
             datePickerDialog.show()
         }
 
-        // Hitung Umur
-        fun calculateAge(dateOfBirth: String): Int {
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val currentDate = Calendar.getInstance()
-            val dobDate = dateFormat.parse(dateOfBirth)
-            val dobCalendar = Calendar.getInstance()
-            dobCalendar.time = dobDate
-
-            var years = currentDate.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR)
-            val currentMonth = currentDate.get(Calendar.MONTH)
-            val dobMonth = dobCalendar.get(Calendar.MONTH)
-
-            if (currentMonth < dobMonth || (currentMonth == dobMonth && currentDate.get(Calendar.DATE) < dobCalendar.get(
-                    Calendar.DATE
-                ))) {
-                years--
-            }
-            return years
-        }
-
         with(binding){
             val authActivity = requireActivity()
 
+            regButton.setOnClickListener {
+                if (allFieldsFilled()) {
+                    val username = usernameReg.text.toString()
+                    val email = emailReg.text.toString()
+                    val password = passwordReg.text.toString()
+                    val ttl = ttl.text.toString()
 
+                    usersRefColl.document(email).get().addOnSuccessListener { doc ->
+                        if (doc.exists()) {
+                            Toast.makeText(requireContext(), "Email sudah terdaftar!", Toast.LENGTH_SHORT).show()
+                        }
+                        else {
+                            val user = User(username = username, email = email, password = password, role = "user")
+                            regNewUser(user)
+                        }
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "Mohon isi semua data", Toast.LENGTH_SHORT)
+                }
+            }
         }
 
         return view
+    }
+
+    private fun allFieldsFilled(): Boolean {
+        return binding.usernameReg.text.isNotEmpty() && binding.emailReg.text.isNotEmpty() &&
+                binding.passwordReg.text.isNotEmpty() && binding.ttl.text.isNotEmpty()
+    }
+
+    private fun regNewUser(user: User) {
+        usersRefColl.document(user.email).set(user).addOnSuccessListener {
+            val sharedPrefs = requireContext().getSharedPreferences("UserData", Context.MODE_PRIVATE)
+            val editor = sharedPrefs.edit()
+            editor.putString("email", user.email)
+            editor.putString("username", user.username)
+            editor.putString("role", user.role)
+            editor.apply()
+
+            val intent = Intent(requireContext(), UserPageActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

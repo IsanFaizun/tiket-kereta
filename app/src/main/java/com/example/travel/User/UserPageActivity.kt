@@ -1,7 +1,8 @@
-package com.example.travel
+package com.example.travel.User
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.travel.R
 
 class UserPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

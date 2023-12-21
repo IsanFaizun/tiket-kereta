@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Admin.AdminPageActivity">
 
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/admin_bottom_navigation"
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/admin_botnav_menu"
+        app:itemIconTint="@color/blue"
+        app:itemTextColor="@color/blue"
+        android:background="@color/white"
+        app:itemRippleColor="#00000000"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/admin_bottom_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_bottom_navigation"
+    app:startDestination="@id/addTravelFragment">
 
+    <fragment
+        android:id="@+id/addTravelFragment"
+        android:name="com.example.travel.Admin.AddTravelFragment"
+        android:label="fragment_add_travel"
+        tools:layout="@layout/fragment_add_travel" >
+        <action
+            android:id="@+id/action_addTravelFragment_to_travelFormFragment"
+            app:destination="@id/travelFormFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.travel.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/travelFormFragment"
+        android:name="com.example.travel.Admin.TravelFormFragment"
+        android:label="fragment_travel_form"
+        tools:layout="@layout/fragment_travel_form" >
+        <action
+            android:id="@+id/action_travelFormFragment_to_addTravelFragment"
+            app:destination="@id/addTravelFragment" />
+    </fragment>
 </navigation>

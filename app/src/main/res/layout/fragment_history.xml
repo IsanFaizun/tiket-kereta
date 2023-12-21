@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Riwayat Pemesanan"
+                android:text="Riwayat Pemesanan Travel"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

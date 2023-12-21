@@ -2,11 +2,22 @@ package com.example.travel.Admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.travel.R
+import com.example.travel.databinding.ActivityAdminPageBinding
 
 class AdminPageActivity : AppCompatActivity() {
+    private val binding by lazy {
+        ActivityAdminPageBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_page)
+        setContentView(binding.root)
+
+        with(binding){
+            val navController = findNavController(R.id.nav_host_fragment)
+            bottomNavView.setupWithNavController(navController)
+        }
     }
 }
