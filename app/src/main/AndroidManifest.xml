@@ -16,7 +16,7 @@
             android:name=".UserPageActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminPageActivity"
+            android:name=".Admin.AdminPageActivity"
             android:exported="false" />
         <activity
             android:name=".AddTravelActivity"

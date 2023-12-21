@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/blue"
-    tools:context=".HistoryFragment">
+    tools:context=".User.HistoryFragment">
 
     <ScrollView
         android:id="@+id/travel_list"
