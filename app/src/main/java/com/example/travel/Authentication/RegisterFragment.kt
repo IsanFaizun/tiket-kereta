@@ -1,20 +1,16 @@
-package com.example.travel
+package com.example.travel.Authentication
 
 import android.app.DatePickerDialog
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.text.InputType
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.travel.R
 import com.example.travel.databinding.FragmentRegisterBinding
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -54,10 +50,17 @@ class RegisterFragment : Fragment() {
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(requireContext(), R.style.CustomDatePickerTheme, DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                val selectedDate = "$dayOfMonth/${month + 1}/$year"
-                binding.ttl.setText(selectedDate)
-            }, year, month, day)
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                R.style.CustomDatePickerTheme,
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    val selectedDate = "$dayOfMonth/${month + 1}/$year"
+                    binding.ttl.setText(selectedDate)
+                },
+                year,
+                month,
+                day
+            )
 
             datePickerDialog.show()
         }
@@ -75,7 +78,8 @@ class RegisterFragment : Fragment() {
             val dobMonth = dobCalendar.get(Calendar.MONTH)
 
             if (currentMonth < dobMonth || (currentMonth == dobMonth && currentDate.get(Calendar.DATE) < dobCalendar.get(
-                    Calendar.DATE))) {
+                    Calendar.DATE
+                ))) {
                 years--
             }
             return years

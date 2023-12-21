@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahRencanaActivity"
+    tools:context=".TravelFormFragment"
     android:background="@color/blue"
     >
     <ScrollView
@@ -24,7 +24,7 @@
                 android:id="@+id/rencana_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Rencana Perjalanan"
+                android:text="Detail Travel"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -49,8 +49,9 @@
                 android:id="@+id/tgl_jalan"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/edt_form"
+                android:background="@drawable/box_1"
                 android:hint="DD/MM/YYYY"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:paddingStart="20dp"
                 android:layout_marginBottom="20dp"
@@ -78,33 +79,23 @@
                 android:text="Kota Asal"
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/tgl_jalan"
-                app:layout_constraintBottom_toTopOf="@+id/kota_asal"
+                app:layout_constraintBottom_toTopOf="@+id/kota_asal_edt"
                 />
 
-            <Spinner
-                android:id="@+id/kota_asal"
+            <EditText
+                android:id="@+id/kota_asal_edt"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:background="@drawable/edt_form"
+                android:background="@drawable/box_1"
                 android:layout_marginBottom="20dp"
-                android:entries="@array/kota_asal"
+                android:inputType="text"
+                android:hint="Tulis Kota Asal"
+                android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/kota_asal_view"
                 app:layout_constraintBottom_toTopOf="@id/kota_tujuan_view"
                 />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:contentDescription="Dropdown mark"
-                android:padding="8dp"
-                android:focusable="true"
-                android:src="@drawable/arrow_down"
-                app:layout_constraintBottom_toBottomOf="@+id/kota_asal"
-                app:layout_constraintEnd_toEndOf="@+id/kota_asal"
-                app:layout_constraintTop_toTopOf="@+id/kota_asal" />
 
             <TextView
                 android:id="@+id/kota_tujuan_view"
@@ -112,34 +103,24 @@
                 android:layout_height="wrap_content"
                 android:text="Kota Tujuan"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/kota_asal"
-                app:layout_constraintBottom_toTopOf="@id/kota_tujuan"
+                app:layout_constraintTop_toBottomOf="@+id/kota_asal_edt"
+                app:layout_constraintBottom_toTopOf="@id/kota_tujuan_edt"
                 />
 
-            <Spinner
-                android:id="@+id/kota_tujuan"
+            <EditText
+                android:id="@+id/kota_tujuan_edt"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:background="@drawable/edt_form"
+                android:inputType="text"
+                android:hint="Tulis Kota Tujuan"
+                android:textColor="@color/black"
+                android:background="@drawable/box_1"
                 android:layout_marginBottom="20dp"
-                android:entries="@array/kota_tujuan"
                 app:layout_constraintTop_toBottomOf="@id/kota_tujuan_view"
                 app:layout_constraintBottom_toTopOf="@id/stasiun_asal_view"
                 />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:contentDescription="Dropdown mark"
-                android:padding="8dp"
-                android:focusable="true"
-                android:src="@drawable/arrow_down"
-                app:layout_constraintBottom_toBottomOf="@+id/kota_tujuan"
-                app:layout_constraintEnd_toEndOf="@+id/kota_tujuan"
-                app:layout_constraintTop_toTopOf="@+id/kota_tujuan" />
 
             <TextView
                 android:id="@+id/stasiun_asal_view"
@@ -147,34 +128,24 @@
                 android:layout_height="wrap_content"
                 android:text="Stasiun Asal"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/kota_tujuan"
-                app:layout_constraintBottom_toTopOf="@id/stasiun_asal"
+                app:layout_constraintTop_toBottomOf="@id/kota_tujuan_edt"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_asal_edt"
                 />
 
-            <Spinner
-                android:id="@+id/stasiun_asal"
+            <EditText
+                android:id="@+id/stasiun_asal_edt"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:background="@drawable/edt_form"
+                android:background="@drawable/box_1"
                 android:layout_marginBottom="20dp"
-                android:entries="@array/stasiun_asal"
+                android:inputType="text"
+                android:hint="Tulis Stasiun Asal"
+                android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/stasiun_asal_view"
                 app:layout_constraintBottom_toTopOf="@id/stasiun_tujuan_view"
                 />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:contentDescription="Dropdown mark"
-                android:padding="8dp"
-                android:focusable="true"
-                android:src="@drawable/arrow_down"
-                app:layout_constraintBottom_toBottomOf="@+id/stasiun_asal"
-                app:layout_constraintEnd_toEndOf="@+id/stasiun_asal"
-                app:layout_constraintTop_toTopOf="@+id/stasiun_asal" />
 
             <TextView
                 android:id="@+id/stasiun_tujuan_view"
@@ -182,34 +153,24 @@
                 android:layout_height="wrap_content"
                 android:text="Stasiun Tujuan"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/stasiun_asal"
-                app:layout_constraintBottom_toTopOf="@id/stasiun_tujuan"
+                app:layout_constraintTop_toBottomOf="@id/stasiun_asal_edt"
+                app:layout_constraintBottom_toTopOf="@id/stasiun_tujuan_edt"
                 />
 
-            <Spinner
-                android:id="@+id/stasiun_tujuan"
+            <EditText
+                android:id="@+id/stasiun_tujuan_edt"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:background="@drawable/edt_form"
+                android:background="@drawable/box_1"
                 android:layout_marginBottom="20dp"
-                android:entries="@array/stasiun_tujuan"
+                android:inputType="text"
+                android:hint="Tulis Stasiun Tujuan"
+                android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/stasiun_tujuan_view"
                 app:layout_constraintBottom_toTopOf="@id/class_kereta_view"
                 />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:contentDescription="Dropdown mark"
-                android:padding="8dp"
-                android:focusable="true"
-                android:src="@drawable/arrow_down"
-                app:layout_constraintBottom_toBottomOf="@+id/stasiun_tujuan"
-                app:layout_constraintEnd_toEndOf="@+id/stasiun_tujuan"
-                app:layout_constraintTop_toTopOf="@+id/stasiun_tujuan" />
 
             <TextView
                 android:id="@+id/class_kereta_view"
@@ -217,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kelas Kereta"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/stasiun_tujuan"
+                app:layout_constraintTop_toBottomOf="@+id/stasiun_tujuan_edt"
                 app:layout_constraintBottom_toTopOf="@id/class_kereta"
                 />
 
@@ -227,11 +188,10 @@
                 android:layout_height="48dp"
                 android:padding="10dp"
                 android:paddingStart="20dp"
-                android:background="@drawable/edt_form"
+                android:background="@drawable/box_1"
                 android:entries="@array/class_kereta"
-
                 app:layout_constraintTop_toBottomOf="@+id/class_kereta_view"
-                app:layout_constraintBottom_toTopOf="@id/toogle"
+                app:layout_constraintBottom_toTopOf="@id/price_detail"
                 />
 
             <ImageView
@@ -246,109 +206,15 @@
                 app:layout_constraintEnd_toEndOf="@+id/class_kereta"
                 app:layout_constraintTop_toTopOf="@+id/class_kereta" />
 
-            <HorizontalScrollView
-                android:id="@+id/toogle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                app:layout_constraintTop_toBottomOf="@id/class_kereta"
-                app:layout_constraintBottom_toTopOf="@+id/price_detail"
-                >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                    <ToggleButton
-                        android:id="@+id/snack_box"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Snack Box"
-                        android:textOn="Snack Box"
-                        android:background="@drawable/toggle_selector"
-                        android:layout_marginRight="2dp"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/lunch_box"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        android:textOff="Lunch Box"
-                        android:textOn="Lunch Box"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/free_wifi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Free Wifi"
-                        android:textOn="Free Wifi"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/stopkontak"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Stop Kontak"
-                        android:textOn="Stop Kontak"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/air_conditioner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Air Conditioner"
-                        android:textOn="Air Conditioner"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/kursi_depan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Kursi Depan"
-                        android:textOn="Kursi Depan"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                    <ToggleButton
-                        android:id="@+id/kursi_disabilitas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="Kursi Disabilitas"
-                        android:textOn="Kursi Disabilitas"
-                        android:layout_marginHorizontal="2dp"
-                        android:background="@drawable/toggle_selector"
-                        android:paddingHorizontal="8dp"
-                        />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
             <LinearLayout
                 android:id="@+id/price_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/toogle"
+                app:layout_constraintTop_toBottomOf="@id/class_kereta"
                 app:layout_constraintBottom_toTopOf="@id/buttons_pesan"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 >
 
                 <TextView
@@ -398,7 +264,7 @@
                 >
 
                 <Button
-                    android:id="@+id/input_pesan"
+                    android:id="@+id/back_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gold"
@@ -408,14 +274,14 @@
                     android:layout_marginRight="2dp"
                     />
                 <Button
-                    android:id="@+id/back_btn"
+                    android:id="@+id/save_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/gold"
                     android:textColor="@color/black"
                     android:layout_weight="1"
                     android:layout_marginLeft="2dp"
-                    android:text="Pesan"
+                    android:text="Simpan"
                     />
 
             </LinearLayout>

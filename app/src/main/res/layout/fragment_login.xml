@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginFragment">
+    tools:context=".Authentication.LoginFragment">
 
     <ImageView
         android:id="@+id/main_logo"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:hint="Username/Email"
-        android:background="@drawable/edt_form"
+        android:background="@drawable/box_1"
         android:padding="15dp"
         android:paddingStart="35dp"
         android:textColor="@color/black"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/edt_form"
+        android:background="@drawable/box_1"
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="15dp"
