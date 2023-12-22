@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.example.travel.Admin.AdminPageActivity
-import com.example.travel.TabAdapter
+import com.example.travel.Adapter.TabAdapter
 import com.example.travel.User.UserPageActivity
 import com.example.travel.databinding.ActivityAuthBinding
 import com.google.android.material.tabs.TabLayoutMediator

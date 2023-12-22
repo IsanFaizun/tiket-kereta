@@ -18,10 +18,10 @@
             android:name=".User.UserPageActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentication.AuthActivity"
+            android:name=".Admin.AdminPageActivity"
             android:exported="false" />
         <activity
-            android:name=".Admin.AdminPageActivity"
+            android:name=".Authentication.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

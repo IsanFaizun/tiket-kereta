@@ -7,11 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.travel.R
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TravelFormFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TravelFormFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

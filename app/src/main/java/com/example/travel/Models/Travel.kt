@@ -1,8 +1,9 @@
 package com.example.travel.Models
 
-data class TravelList(
+data class Travel(
     var id: String = "",
-    var title: String = "",
+    var namaKereta: String = "",
+    var kelas: String = "",
     var tglJalan: String = "",
     var kotaAsal: String = "",
     var kotaTujuan: String = "",

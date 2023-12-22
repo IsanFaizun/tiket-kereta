@@ -3,10 +3,10 @@ package com.example.travel.Authentication
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
-import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private val firestore = FirebaseFirestore.getInstance()
-    private val usersRefColl = firestore.collection("users")
+    private val usersCollRef = firestore.collection("users")
 
     private var calendar = Calendar.getInstance()
 
@@ -79,12 +79,12 @@ class RegisterFragment : Fragment() {
                     val password = passwordReg.text.toString()
                     val ttl = ttl.text.toString()
 
-                    usersRefColl.document(email).get().addOnSuccessListener { doc ->
+                    usersCollRef.document(email).get().addOnSuccessListener { doc ->
                         if (doc.exists()) {
                             Toast.makeText(requireContext(), "Email sudah terdaftar!", Toast.LENGTH_SHORT).show()
                         }
                         else {
-                            val user = User(username = username, email = email, password = password, role = "user")
+                            val user = User(username = username, email = email, password = password, role = "user", ttl = ttl)
                             regNewUser(user)
                         }
                     }
@@ -103,7 +103,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun regNewUser(user: User) {
-        usersRefColl.document(user.email).set(user).addOnSuccessListener {
+        usersCollRef.document(user.email).set(user).addOnSuccessListener {
             val sharedPrefs = requireContext().getSharedPreferences("UserData", Context.MODE_PRIVATE)
             val editor = sharedPrefs.edit()
             editor.putString("email", user.email)
@@ -113,6 +113,8 @@ class RegisterFragment : Fragment() {
 
             val intent = Intent(requireContext(), UserPageActivity::class.java)
             startActivity(intent)
+        }.addOnFailureListener {
+            Log.d("User Register", "Failed to registering new user: $it")
         }
     }
 }

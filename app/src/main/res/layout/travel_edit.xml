@@ -117,6 +117,7 @@
             android:layout_weight="1"
             />
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:background="@color/red"
@@ -127,6 +128,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:background="@color/gold"

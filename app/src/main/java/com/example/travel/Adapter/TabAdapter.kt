@@ -1,4 +1,4 @@
-package com.example.travel
+package com.example.travel.Adapter
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
